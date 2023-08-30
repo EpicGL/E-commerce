@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}
+  Store
+{% endblock title %}
+{% block navbar %}
+  {% include 'navbar.html' %}
+{% endblock navbar %}
+
+{% block body %}
+    <br>
+    <div class="container text-white align-items-center">
+
+
+      <div class="row">
+        
+        {% for product in product %}
+              <div class="col-lg-3 col-12 col-md-6 thumbnail text-black mb-3 " >
+                <img src="{{product.imageURL}}" class="thumbnail-img" alt="{{product.name}}">
+                <div class="product-details">
+                  <h6><strong>{{product.name}}</strong></h6>
+          
+                  <button data-product="{{product.id}}" data-action="add" class="btn btn-warning add-btn update-cart">Add to Cart</button>
+                  
+                  <a class="btn btn-outline-success" href="{{product.slugURL}}">View</a>
+                  <h5 style="display: inline-block;"><strong>${{product.price}}</strong></h5>
+                </div>
+              </div>
+        {% endfor %}
+          
+      </div>
+
+      
+    </div>
+{% endblock body %}

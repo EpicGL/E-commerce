@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  {{product.name}}
+{% endblock title %}
+{% block navbar %}
+  {% include 'navbar.html' %}
+{% endblock navbar %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col">
+                <img class style="max-width: 50%;" src="{{product.imageURL}}" alt="{{product.name}}">
+            </div>
+            <div class="col card card-title">
+                <h4>{{product.name}}</h4>
+                <h5>{{product.price}}$</h5>
+                <p>{{product.description}}</p>
+                <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-primary add-btn update-cart">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% load static %}
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">Mega Store</a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="{% url 'store' %}">Store</a></li>
+      </ul>
+      <div class="d-flex">
+        <form class="d-flex me-2 align-items-center">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <a class="cart-link d-flex justify-content-end" style="max-width: 100%;">
+          <p class="align-items-center cart-counter" style="    
+          font-size: 12px;
+          position:absolute;
+          background: #ff0000;
+          color: #fff;
+          padding: 0 5px;
+          vertical-align: top;
+          border-radius: 5px;
+          "></p>
+          <img style="max-width: 40px; border-radius: 5px;" src="{% static 'img/cart.jpg' %}" alt="">
+        </a>
+      </div>
+    </div>
+  </nav>
