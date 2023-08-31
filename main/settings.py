@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'api.apps.ApiConfig',
     '_auth.apps.AuthConfig',
+    '_admin.apps.AdminConfig',
 ]
 
 MIDDLEWARE = [
