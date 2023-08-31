@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  LoginPage
+{% endblock title %}
+
+{% block body %}
+    <div class="container login-container ">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7 col-sm-10">
+          <div class="card card-body">
+            <h4 class="d-flex justify-content-center mb-3">Login</h4>
+            <hr>
+            <form method="post">
+              {% csrf_token %}
+              <label class="form-label" for="username">username:</label>
+
+              <input name="username" placeholder="username..." type="text" class="form-control">
+
+              <label for="password" class="form-label mt-1">password:</label>
+
+              <input name="password" placeholder="password" type="password" class="form-control">
+
+              <button class="btn btn-primary form-control mt-2" type="submit">LogIn</button>
+              <div class="d-flext justify-content-center mt-3">
+                {{error_message}}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock body %}
