@@ -1,0 +1,21 @@
+{% extends "base_admin.html" %}
+{% load static %}
+
+{% block title %}
+    {% if product %}
+        {{product.name}}
+    {% else %}
+        New Product
+    {% endif %}
+{% endblock title %}
+
+
+{% block body %}
+
+    <form class="form-control shadow" method="post">
+        {% csrf_token %}
+
+
+    </form>
+
+{% endblock body %}

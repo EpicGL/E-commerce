@@ -1,4 +1,5 @@
-from django.contrib.auth import authenticate, login as auth_login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.models import Group as group
 from django.shortcuts import render, redirect
 
 
@@ -12,7 +13,11 @@ def login(request):
         if user is not None:
             if user.is_active:
                 auth_login(request, user)
-                return redirect('store')  # Redirect to the home page after successful login
+                admin_group = 'admin'
+                if user.groups.filter(name=admin_group).exists():
+                    print('====admin===')
+                    return redirect('dashboard')
+                return redirect('store')
             else:
                 return render(request, 'login.html', {'error_message': 'Your account is disabled.'})
         else:
@@ -21,6 +26,6 @@ def login(request):
         return redirect('store')
     return render(request, 'login.html')
 
-def user_logout(request):
-    logout(request)
+def logout(request):
+    auth_logout(request)
     return redirect('store')

@@ -1,7 +1,6 @@
-from typing import Iterable, Optional
 from django.db import models
 from autoslug import AutoSlugField
-
+from django.core.validators import MinValueValidator
 
 # Category Model
 class Category(models.Model):
@@ -10,6 +9,9 @@ class Category(models.Model):
     slug = AutoSlugField(populate_from='name',unique=True, blank=False)
     def __str__(self):
         return self.name
+    
+    class Meta:
+        ordering = ('id',)
 
 # Tag Model
 class Tag(models.Model):
@@ -29,7 +31,7 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.SET_DEFAULT, default='default')
     tags = models.ManyToManyField(Tag)
-
+    quantity_in_stock = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0)])
 
     def __str__(self):
         return self.name
@@ -46,3 +48,6 @@ class Product(models.Model):
     def slugURL(self):
         url =  'product/'+self.slug
         return str(url)
+    
+    class Meta:
+        ordering = ('id',)

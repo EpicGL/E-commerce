@@ -1,0 +1,58 @@
+{% extends "base_admin.html" %}
+{% load static %}
+{% block title %}
+Dashboard
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <div class="p-1 mt-5">
+
+      <div class="row mt-4 mb-4">
+
+        <div class="col-lg-8" >
+            <div class="card card-body shadow" style="height: 100%;">
+              <div style="font-weight: 500;">
+                Sales Summary:
+              </div>
+              <br>
+
+              <div style="max-width: 100%;">
+                {{chart|safe}}
+              </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card card-body shadow" style="height: 100%;">
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card card-body shadow" style="width: 100%;">
+        hi
+      </div>
+    
+
+
+
+
+  </div>
+
+
+
+
+{% endblock body %}
+
+
+
+{% block script %}
+  <script>
+    dashboard.classList.add("bg-secondary");
+    dashboard.classList.add("text-white");
+  </script>
+{% endblock script %}

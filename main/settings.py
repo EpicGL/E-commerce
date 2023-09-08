@@ -25,10 +25,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #pip apps
+    #installed apps
     'autoslug',
     'rest_framework',
+    'plotly',
 
+    
     #myapps
     'store.apps.StoreConfig',
     'product.apps.ProductConfig',
